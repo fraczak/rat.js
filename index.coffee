@@ -1,25 +1,25 @@
-bigInt = require "big-integer"
+Integer = require "./Integer"
 
 class Rat
     constructor: (num = 0, denom = 1) ->
-        @num = new bigInt num
-        @denom = new bigInt denom
+        @num = new Integer num
+        @denom = new Integer denom
         @normalize()
     normalize: ->
         throw new Error("Division by zero!!!") if @denom.isZero()
         if @num.isZero()
-            @denom = new bigInt(1)
+            @denom = new Integer(1)
             return this
         if not @denom.isPositive()
-            @num = bigInt.zero.minus(@num)
-            @denom = bigInt.zero.minus(@denom)
+            @num = Integer.zero.minus(@num)
+            @denom = Integer.zero.minus(@denom)
             return @normalize()
         if not @num.isPositive()
-            @num = bigInt.zero.minus(@num)
+            @num = Integer.zero.minus(@num)
             @normalize()
-            @num = bigInt.zero.minus(@num)
+            @num = Integer.zero.minus(@num)
             return this
-        g = bigInt.gcd @num, @denom
+        g = Integer.gcd @num, @denom
         @num = @num.divide g
         @denom = @denom.divide g
         return this
@@ -31,11 +31,10 @@ Rat.add = (X,Y) ->
     X = new Rat X unless X instanceof Rat
     Y = new Rat Y unless Y instanceof Rat
     new Rat X.num.times(Y.denom).add(Y.num.times X.denom), X.denom.times Y.denom
-
 Rat.minus = (X,Y) ->
     X = new Rat X unless X instanceof Rat
     if not Y?
-        return new Rat bigInt.zero.minus(X.num), X.denom
+        return new Rat Integer.zero.minus(X.num), X.denom
     Y = new Rat Y unless Y instanceof Rat
     X.add Rat.minus Y
 
@@ -47,6 +46,7 @@ Rat.times = (X,Y) ->
 Rat.inverse = (X) ->
     throw new Error("Division by zero!!!") if X.num.isZero()
     return new Rat X.denom, X.num
+
 Rat.divide = (X,Y) ->
     X = new Rat X unless X instanceof Rat
     Y = new Rat Y unless Y instanceof Rat
