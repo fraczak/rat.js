@@ -4,6 +4,7 @@
   "description": "Rational numbers (fractions) in JS, with +, -, *, and /",
   "main": "index.js",
   "dependencies": {
+    "BigInt": "^5.5.3",
     "big-integer": "^1.5.6"
   },
   "devDependencies": {
@@ -14,8 +15,8 @@
     "test": "coffee test.coffee"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/fraczak/rat.js.git"
+    "type": "git",
+    "url": "https://github.com/fraczak/rat.js.git"
   },
   "author": "Wojciech Fraczak <fraczak@gmail.com>",
   "license": "GPL"

@@ -1,4 +1,4 @@
-Rat = require "./"
+Rat = require "./index.coffee"
 
 one = new Rat 1
 two = new Rat 2
