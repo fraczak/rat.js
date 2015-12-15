@@ -4,8 +4,7 @@
   "description": "Rational numbers (fractions) in JS, with +, -, *, and /",
   "main": "index.js",
   "dependencies": {
-    "BigInt": "^5.5.3",
-    "big-integer": "^1.5.6"
+    "BigInt": "^5.5.3"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0"

@@ -66,14 +66,15 @@ class Integer
         new Integer BigInt.mult(@val, y.val), neg
     valueOf: ->
         prefix = if @neg then "-" else ""
-        str = prefix + BigInt.gigInt2str(@val,10)
+        str = prefix + BigInt.bigInt2str(@val,10)
         parseInt str, 10
     eq: (y) ->
         y = new Integer(y) unless y instanceof Integer
         if @isZero()
             return y.isZero()
-        BigInt.equals(@val, y.val) and @neg is y.neg
-
+        if BigInt.equals(@val, y.val) and @neg is y.neg
+            return true
+        false
 Integer.gcd = gcd = (x,y) ->
     x = new Integer(x) unless x instanceof Integer
     y = new Integer(y) unless y instanceof Integer
