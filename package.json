@@ -1,21 +1,21 @@
 {
   "name": "rat.js",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Rational numbers (fractions) in JS, with +, -, *, and /",
   "main": "index.js",
   "dependencies": {
-    "big-integer": "^1.5.6"
+    "big-integer": "~1.6.8"
   },
   "devDependencies": {
-    "coffee-script": "^1.10.0"
+    "coffee-script": "~1.10.0"
   },
   "scripts": {
     "prepublish": "coffee -c .",
     "test": "coffee test.coffee"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/fraczak/rat.js.git"
+    "type": "git",
+    "url": "https://github.com/fraczak/rat.js.git"
   },
   "author": "Wojciech Fraczak <fraczak@gmail.com>",
   "license": "GPL"
